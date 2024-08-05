@@ -1,0 +1,19 @@
+@use '../../assets/abstracts';
+
+:host {
+  .container {
+    padding: 20px 40px;
+
+    .feedbacks-list {
+      padding: 15px;
+      background-color: abstracts.$white;
+      box-shadow: abstracts.$global-box-shadow;
+      border-radius: abstracts.$global-border-radius;
+
+      .item {
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+}

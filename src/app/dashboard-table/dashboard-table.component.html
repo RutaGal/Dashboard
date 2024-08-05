@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="feedbacks-list">
+    <table>
+      <tr>
+        <th>Feedback ID</th>
+        <th>Creation Date</th>
+        <th>Game</th>
+        <th>Feedback State</th>
+        <th>Platform</th>
+        <th>Version</th>
+        <th>Category</th>
+        <th>Content</th>
+      </tr>
+
+      @for (feedback of feedbackList; track feedback) {
+        <tr app-dashboard-item [item]="feedback">
+      }
+    </table>
+  </div>
+</div>

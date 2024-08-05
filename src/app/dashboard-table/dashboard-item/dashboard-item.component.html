@@ -1,0 +1,10 @@
+<td>{{ item.feedbackId }}</td>
+<td>{{ item.creationDate | date:'yyyy/MM/dd'}}</td>
+<td>{{ item.gameName }}</td>
+<td>
+  <app-select [currentFeedbackState]="item.feedbackState"></app-select>
+</td>
+<td>{{ item.platform }}</td>
+<td>{{ item.version }}</td>
+<td>{{ item.category }}</td>
+<td>{{ item.content }}</td>

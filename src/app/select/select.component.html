@@ -1,0 +1,7 @@
+<select [(ngModel)]="selectedOption" (ngModelChange)="onSelectionChange($event)">
+  @for (option of options; track option) {
+    <option [ngValue]="option">
+      {{ option }}
+    </option>
+  }
+</select>
