@@ -1,7 +1,11 @@
-<select [(ngModel)]="selectedOption" (ngModelChange)="onSelectionChange($event)">
+@if (label.length > 0) {
+  <label for="select">{{ label }}</label>
+}
+
+<select id="select" [(ngModel)]="selectedOption" (ngModelChange)="onSelectionChange($event)">
   @for (option of options; track option) {
-    <option [ngValue]="option">
-      {{ option }}
+    <option [ngValue]="option.value">
+      {{ option.name }}
     </option>
   }
 </select>

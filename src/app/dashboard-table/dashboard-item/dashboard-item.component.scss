@@ -1,0 +1,66 @@
+@use '../../../assets/abstracts';
+
+:host {
+  td {
+    padding: 5px;
+    font-family: abstracts.$generic-details-font;
+
+    &:first-child,
+    &:nth-child(2),
+    &:nth-child(4),
+    &:nth-child(5),
+    &:nth-child(6){
+      width: 90px;
+    }
+
+    &:nth-child(3) {
+      width: 170px;
+    }
+
+    &.feedback-state {
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+          margin-right: 5px;
+
+          &.new {
+            color: abstracts.$blue;
+          }
+
+          &.progress {
+            color: abstracts.$orange;
+          }
+
+          &.completed {
+            color: abstracts.$green;
+          }
+        }
+      }
+    }
+
+    .category {
+      border-radius: abstracts.$global-border-radius;
+      padding: 5px;
+      display: inline-block;
+
+      &.bug {
+        background-color: abstracts.$tan;
+      }
+
+      &.suggestion {
+        background-color: abstracts.$cream;
+      }
+
+      &.praise {
+        background-color: abstracts.$sage;
+      }
+
+      &.inquiry {
+        background-color: abstracts.$sand;
+      }
+    }
+  }
+}

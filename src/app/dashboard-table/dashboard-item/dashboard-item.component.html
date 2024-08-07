@@ -1,10 +1,31 @@
-<td>{{ item.feedbackId }}</td>
-<td>{{ item.creationDate | date:'yyyy/MM/dd'}}</td>
-<td>{{ item.gameName }}</td>
-<td>
-  <app-select [currentFeedbackState]="item.feedbackState"></app-select>
+<td>{{ feedbackItem.creationDate | date:'yyyy/MM/dd'}}</td>
+<td>{{ feedbackItem.gameName }}</td>
+<td class="feedback-state">
+  <div>
+    @if (feedbackItem.feedbackState === FeedbackState.Completed) {
+      <i class="material-icons completed">check_circle</i>
+    } @else if (feedbackItem.feedbackState === FeedbackState.InProgress) {
+      <i class="material-icons progress">rotate_right</i>
+    } @else if (feedbackItem.feedbackState === FeedbackState.New) {
+      <i class="material-icons new">fiber_new</i>
+    }
+    <app-select
+      [currentOption]="feedbackItem.feedbackState"
+      [options]="options"
+      (valueChange)="onFeedbackStateChange($event)"></app-select>
+  </div>
+
 </td>
-<td>{{ item.platform }}</td>
-<td>{{ item.version }}</td>
-<td>{{ item.category }}</td>
-<td>{{ item.content }}</td>
+<td>{{ feedbackItem.platform }}</td>
+<td>{{ feedbackItem.version }}</td>
+<td>
+  <div class="category"
+       [ngClass]="{
+       'bug': (feedbackItem.category === Category.Bug),
+       'praise': (feedbackItem.category === Category.Praise),
+       'suggestion': (feedbackItem.category === Category.Suggestion),
+       'inquiry': (feedbackItem.category === Category.Inquiry)}">
+    {{ feedbackItem.category }}
+  </div>
+</td>
+<td>{{ feedbackItem.content }}</td>

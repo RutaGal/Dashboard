@@ -3,7 +3,7 @@ import { Category } from "./category.enum";
 import { FeedbackState } from "./feedback-state.enum";
 
 export class Feedback {
-  feedbackId: number = 0;
+  id: number = 0;
   creationDate: Date = new Date();
   gameName: string = '';
   feedbackState: FeedbackState = FeedbackState.New;

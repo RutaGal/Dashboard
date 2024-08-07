@@ -3,6 +3,7 @@
 :host {
   .container {
     padding: 20px 40px;
+    margin-top: 15px;
 
     .feedbacks-list {
       padding: 15px;
@@ -10,9 +11,52 @@
       box-shadow: abstracts.$global-box-shadow;
       border-radius: abstracts.$global-border-radius;
 
-      .item {
-        display: flex;
-        gap: 10px;
+      table {
+        width: 100%;
+        border-collapse: collapse;
+
+        @media (max-width: 900px) {
+          display: block;
+          overflow-x: auto;
+          white-space: nowrap;
+        }
+
+        .table-header {
+          th {
+            text-align: left;
+            padding: 5px;
+            border-bottom: abstracts.$global-border;
+          }
+        }
+
+        tr:not(:first-child):hover {
+          background-color: abstracts.$darker-violet;
+        }
+      }
+    }
+
+    .filters {
+      font-family: abstracts.$generic-details-font;
+      display: flex;
+      gap: 15px;
+
+      input {
+        min-width: 125px;
+        padding: 10px;
+        background-color: abstracts.$white;
+        border: abstracts.$global-border;
+        border-radius: abstracts.$global-border-radius;
+        cursor: pointer;
+        margin: 0 0 15px 10px;
+
+        &:focus {
+          outline: none;
+        }
+
+        @media (max-width: 400px) {
+          display: block;
+          margin: 15px 10px 15px 0;
+        }
       }
     }
   }

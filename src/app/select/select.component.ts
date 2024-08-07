@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { FeedbackState } from "../data/feedback-state.enum";
 
@@ -12,16 +12,18 @@ import { FeedbackState } from "../data/feedback-state.enum";
   styleUrl: './select.component.scss'
 })
 export class SelectComponent implements OnInit{
-  options: FeedbackState[] = [FeedbackState.New, FeedbackState.InProgress, FeedbackState.Completed];
-  currentFeedbackState = input<string>('');
-
+  @Input() options: any[];
+  @Input() label: string = '';
+  @Input() currentOption: string = '';
+  @Output() valueChange: EventEmitter<FeedbackState> = new EventEmitter<FeedbackState>();
   selectedOption: any;
 
   ngOnInit() {
-    this.selectedOption = this.options.find(option => option === this.currentFeedbackState());
+    this.selectedOption = this.options.find(option => option.value === this.currentOption)?.value;
   }
 
   onSelectionChange(selected: FeedbackState) {
     this.selectedOption = selected;
+    this.valueChange.emit(selected);
   }
 }

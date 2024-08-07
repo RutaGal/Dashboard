@@ -1,8 +1,22 @@
 <div class="container">
+  <div class="filters">
+    <div>
+      <app-select
+        (valueChange)="onFilterCriteriaSelected($event)"
+        label="Filter criteria"
+        [options]="filterCriteriaOptions"
+        [currentOption]="filterCriteriaOptions[0].value"></app-select>
+      <input
+        type="text"
+        placeholder="Type search text..."
+        (input)="onInputChanged()"
+        [(ngModel)]="value">
+    </div>
+  </div>
+
   <div class="feedbacks-list">
     <table>
-      <tr>
-        <th>Feedback ID</th>
+      <tr class="table-header">
         <th>Creation Date</th>
         <th>Game</th>
         <th>Feedback State</th>
@@ -12,8 +26,8 @@
         <th>Content</th>
       </tr>
 
-      @for (feedback of feedbackList; track feedback) {
-        <tr app-dashboard-item [item]="feedback">
+      @for (feedback of filteredFeedbackList; track feedback) {
+        <tr app-dashboard-item [feedbackItem]="feedback" [options]="feedbackStateOptions">
       }
     </table>
   </div>

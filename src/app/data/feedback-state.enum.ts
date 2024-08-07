@@ -1,5 +1,5 @@
 export enum FeedbackState {
-  New = 'New',
-  InProgress = 'In Progress',
-  Completed = 'Completed'
+  New = 'new',
+  InProgress = 'inProgress',
+  Completed = 'completed'
 }
